@@ -18,6 +18,8 @@ set(SOURCE main.cpp)
 
 add_executable(repro ${SOURCE})
 
+message(STATUS "CXX Compiler: ${CMAKE_CXX_COMPILER_ID} (${CMAKE_CXX_COMPILER})")
+
 separate_arguments(OFFLOAD_FLAGS)
 target_compile_options(repro PUBLIC "$<$<CONFIG:RELEASE>:${OFFLOAD_FLAGS}>")
 target_link_options(repro PUBLIC "$<$<CONFIG:RELEASE>:${OFFLOAD_FLAGS}>")
